@@ -224,6 +224,17 @@ export const configSchema = z.object({
     )
     .strict("topAnchor can only have name and icon properties.")
     .optional(),
+  seo: z
+    .object(
+      {
+        trailingSlash: z.boolean({
+          invalid_type_error:
+            "trailingSlash must be a boolean. Try writing true or false without the quotes.",
+        })
+        .optional(),
+      }
+    )
+    .optiona(),
   anchors: anchorsSchema.optional(),
   footerSocials: footerSocialsSchema.optional(),
   backgroundImage: z.string().optional(),
